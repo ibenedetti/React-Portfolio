@@ -1,0 +1,326 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  --skill-bg:#02151C;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1 {
+  position: absolute;
+  font-size: 4.5em;
+  line-height: 1.1;
+  font-weight: 300;
+  top: -5vh;
+  left: 10vh;
+}
+
+h2{
+  position: absolute;
+  font-size: 3.5em;
+  line-height: 1.1;
+  font-weight: 300;
+  text-transform: uppercase;
+  left: 6vw;
+
+}
+
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.parallax-container{
+  overflow-x: hidden;
+}
+
+.parallax {
+  position: absolute;
+  width: 100vw;
+  top: -30vh; /* Initial position */
+  opacity: 0; /* Initial opacity */
+  animation: parallax 3s linear forwards; /* Adjust duration as needed */
+}
+
+
+.parallax-3{
+  animation-delay: 0.2s;
+}
+
+.parallax-4{
+  animation-delay: 0.7s;
+}
+
+.parallax-5{
+  animation-delay: 0.4s;
+}
+
+.parallax-6{
+  animation-delay: 0.9s;
+}
+
+.text-anim{
+  position: absolute;
+  color: white;
+  z-index: 1000!important;
+  right: 10vw;
+  font-size: 3.6em;
+  text-transform: uppercase;
+  bottom:10vh;
+  text-shadow: 2px 3px 10px #fff5f3;
+}
+
+@keyframes parallax{
+  0%{
+    bottom:5vh;
+    opacity: 0;
+  }
+
+  100%{
+    bottom:0vh;
+    opacity: 1;
+  }
+}
+
+canvas{
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* GRID EFFECT */
+
+.grid-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-size: 50px 50px;
+  z-index: 1;
+}
+
+.grid-top {
+  background-image: linear-gradient(0deg, transparent 19%, rgba(13, 229, 255, 0.5) 24%, hsl(187, 100%, 54%) 25%, hsl(187, 100%, 54%) 26%, rgba(13, 229, 255, 0.5) 27%, transparent 32%, transparent 69%, rgba(13, 229, 255, 0.5) 74%, hsl(187, 100%, 54%) 75%, hsl(187, 100%, 54%) 76%, rgba(13, 229, 255, 0.5) 77%, transparent 82%, transparent), linear-gradient(90deg, transparent 19%, rgba(13, 229, 255, 0.5) 24%, hsl(187, 100%, 54%) 25%, hsl(187, 100%, 54%) 26%, rgba(13, 229, 255, 0.5) 27%, transparent 32%, transparent 69%, rgba(13, 229, 255, 0.5) 74%, hsl(187, 100%, 54%) 75%, hsl(187, 100%, 54%) 76%, rgba(13, 229, 255, 0.5) 77%, transparent 82%, transparent);
+  transform: rotateX(-80deg) scale(2);
+  transform-origin: top center;
+  animation: rad 3s reverse linear infinite;
+  transform: perspective(200px) rotateX(-40deg) scale(4) translateZ(0);
+  opacity: 0.75;
+  z-index: -1;
+}
+
+
+
+@keyframes rad {
+  100% {
+    background-position: 0px 50px;
+  }
+}
+
+
+/* SKILLS */
+
+#skills{
+  height: 100vh;
+  position: relative;
+  background: #02151C;
+  top: -60vh;
+}
+
+.icon-container{
+  position:absolute;
+  top: 30vh;
+  left: 12vw;  
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon{
+  position: relative;
+  height: 30vh;
+  width: 30vh;
+  fill:rgba(255, 255, 255, 0.87)!important;
+}
+
+.icon path{  
+  fill:rgba(255, 255, 255, 0.87)!important;
+}
+
+.icon circle{  
+  fill:rgba(255, 255, 255, 0.87)!important;
+}
+
+#experience{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 190vh;
+  background: var(--skill-bg);
+}
+
+/* CAROUSEL STYLING */
+
+.carousel-container::before,
+.carousel-container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: #f0f0f0; /* Adjust color as needed */
+}
+
+.carousel-container::before {
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.carousel-container::after {
+  right: 50%;
+  transform: translate(50%, -50%) rotate(45deg);
+}
+
+
+/* FORM STYLING */
+
+.contact-container{
+  background-color: var(--skill-bg);
+  position: absolute;
+  z-index: 1000!important;
+  height: 100vh;
+  width: 100vw;
+  top: 290vh;
+}
+
+form{
+  display: flex;
+  position:absolute;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 20vh;
+  left: 30vw;
+  width: 30vw;
+  height: 70vh;
+  border-radius: 10%;
+  font-size: 1.3em;
+}
+
+form div{
+  width: 100%;
+  text-align: left;
+}
+
+form input{
+  margin-bottom: 2vh;
+  width: 100%;
+  height: 5vh;
+  text-align: center;
+}
+
+form textarea{
+  margin-bottom: 2vh;
+  width: 100%;
+  height: 30vh;
+  text-align: center;
+}
+
+form button{
+  width: 100%;
+}
+
+form input, textarea,button:hover{
+  border: none;
+}
+
+
+/* SMOL */
+
+#smallscreen-message{
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  #smallscreen-message{
+    display: block!important;
+    font-size: 2em;
+    position: absolute;
+    top: 20vh;
+    text-align: center;
+  }
+
+  canvas, img, h1 , h2 , h3, span{
+    display: none!important;
+  }
+
+  body{
+    overflow: hidden;
+  }
+
+
+}
