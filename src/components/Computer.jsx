@@ -1,11 +1,10 @@
 import { useGLTF } from "@react-three/drei";
 import { useRef, useEffect } from "react";
 import { Box3, Vector3 } from "three";
-import computerScene from "../assets/3d/untitled.gltf";
 
 const Computer = ({ scale, position, rotation }) => {
     const computerRef = useRef();
-    const { scene } = useGLTF(computerScene);
+    const { scene } = useGLTF("/src/assets/3d/Computer.gltf");
 
     useEffect(() => {
         const box = new Box3().setFromObject(scene);
@@ -18,7 +17,5 @@ const Computer = ({ scale, position, rotation }) => {
         <primitive ref={computerRef} object={scene} position={position} scale={scale} rotation={rotation} />
     );
 };
-
-
 
 export default Computer;
