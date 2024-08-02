@@ -4,8 +4,8 @@ const TextAnimation = () => {
   const [text, setText] = useState(''); // State to hold the animated text
 
   useEffect(() => {
-    const strings = ['web developer']; // Array of strings to animate
-    const resolveString = strings[0]; // Select the first string to resolve
+    const strings = ['Sound Engineer', 'Web Developer']; // Array of strings to animate
+    let currentIndex = 0; // Index to keep track of the current string to resolve
 
     const resolver = {
       resolve: function resolve(options, callback) {
@@ -39,17 +39,27 @@ const TextAnimation = () => {
       return characters[Math.floor(Math.random() * characters.length)];
     }
 
-    const options = {
-      timeout: 100, // Decreased timeout for faster animation
-      iterations: resolveString.length + 1, // Ensure enough iterations to complete animation
-      characters: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'x', '#', '%', '&', '-', '+', '_', '?', '/', '\\', '='],
-      resolveString,
-      element: document.querySelector('[data-target-resolver]'),
-    };
+    function animateString(index) {
+      const resolveString = strings[index];
+      const options = {
+        timeout: 100, // Decreased timeout for faster animation
+        iterations: resolveString.length + 1, // Ensure enough iterations to complete animation
+        characters: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'x', 'y', 'x', '#', '%', '&', '-', '+', '_', '?', '/', '\\', '='],
+        resolveString,
+        partialString: '',
+        element: document.querySelector('[data-target-resolver]'),
+      };
 
-    resolver.resolve(options, () => {
-      // Animation completed callback (optional)
-    });
+      resolver.resolve(options, () => {
+        // Move to the next string if exists and add a delay
+        currentIndex++;
+        if (currentIndex < strings.length) {
+          setTimeout(() => animateString(currentIndex), 1000); // 1 second delay
+        }
+      });
+    }
+
+    animateString(currentIndex);
 
     // Clean up function (optional)
     return () => {

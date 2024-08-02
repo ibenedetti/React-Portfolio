@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react'; 
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(),],
   esbuild: {
     loader: 'jsx',
   },
@@ -19,8 +19,6 @@ export default defineConfig({
       },
     },
   },
-  server: {
-    base: 'https://ibenedetti.github.io',
-  },
+  server: {  },
   assetsInclude: ['**/*.gltf', '**/*.glb', '**/*.bin', '**/*.png', '**/*.jpg'],
 });

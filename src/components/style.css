@@ -190,6 +190,8 @@
 
 /* EXPERIENCE MENU STYLING */
 
+
+
 ul{ 
   font-weight:bolder;  
   position: absolute;
@@ -211,9 +213,9 @@ ul{
 .text-box {
   display: inline;
   position: absolute;
-  top: 60vh;
+  top: 0vh;
   width: 50%;
-  left: 6vw;
+  right: 0vw;
   font-size: 1.3em;
   animation: show 0.5s linear;
 }
@@ -228,3 +230,14 @@ ul{
   
 }
 
+
+/* 3D ME */
+
+.model-canvas{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.model-canvas-container {
+  position: relative;
+}
