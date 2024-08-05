@@ -21,10 +21,13 @@ export function Model({ activeExperience, ...props }) {
   const { animations: LookDown } = useFBX('/animations/LookDown.fbx');
   LookDown[0].name = 'LookingDown';
 
+  // const { animations: LookDownLeft } = useFBX('/animations/LookDownLeft.fbx');
+  // LookDownLeft[0].name = 'LookingDownLeft';
+
   const { animations: Bounce } = useFBX('/animations/Bouncing.fbx');
   Bounce[0].name = 'Bouncing';
 
-  const { actions } = useAnimations([...LookUp, ...LookMiddle, ...LookDown, ...Bounce], group);
+  const { actions } = useAnimations([...LookUp, ...LookMiddle, ...LookDown,  ...Bounce], group);
 
   useEffect(() => {
     if (actions[currentAction]) {
@@ -35,7 +38,7 @@ export function Model({ activeExperience, ...props }) {
       const freezeAtEnd = () => {
         if (action) {
           action.paused = true;
-          action.time = action.getClip().duration; 
+          action.time = action.getClip().duration;           
         }
       };
       
@@ -47,7 +50,7 @@ export function Model({ activeExperience, ...props }) {
   useEffect(() => {
     if (actions[currentAction]) {
       const action = actions[currentAction];
-      action.reset().play(); 
+      action.reset().play();   
     }
   }, [currentAction, actions]);
 
@@ -67,7 +70,7 @@ export function Model({ activeExperience, ...props }) {
   useEffect(() => {
     if (activeExperience === 'First Steps') {
       setCurrentAction('LookingMiddle');
-    } else if (activeExperience === 'Now' || activeExperience === 'The Loop') {
+    } else if ( activeExperience === 'Now' || activeExperience === 'The Loop') {
       setCurrentAction('LookingDown');
     } else {
       setCurrentAction('LookingUp');
