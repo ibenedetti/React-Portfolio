@@ -1,7 +1,7 @@
 import { useEffect, useState, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { Model } from './Model';  // Import Model as a named export
+import { Model } from './Model'; 
 import CanvasLoader from './loader';
 
 const ModelCanvas = ({ width = '100vw', height = '150vh', activeExperience }) => {

@@ -4,10 +4,10 @@ import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer';
 
 const ContactForm = () => {
-  const h2Ref = useRef(null); // Ref for h2
+  const h2Ref = useRef(null); 
   const { ref: inViewRef, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.5, // Trigger when 50% of the element is in view
+    threshold: 0.5, 
   });
 
   const h2Animation = useSpring({
@@ -33,7 +33,6 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Prepare the data to be sent
     const templateParams = {
       name: formData.name,
       user_email: formData.email,
@@ -101,7 +100,7 @@ const ContactForm = () => {
         </div>
         <button type="submit">Send</button>
       </form>
-      <div ref={inViewRef}></div> {/* This is where you use the ref for inView */}
+      <div ref={inViewRef}></div> 
     </div>
   );
 };

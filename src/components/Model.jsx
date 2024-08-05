@@ -8,12 +8,10 @@ export function Model({ activeExperience, ...props }) {
   const group = useRef();
   const [currentAction, setCurrentAction] = useState('LookingUp');
   
-  // Ensure correct path to model
   const { scene } = useGLTF('/3d/model.glb');
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { nodes, materials } = useGraph(clone);
   
-  // Ensure correct path to animations
   const { animations: LookUp } = useFBX('/animations/LookUp.fbx');
   LookUp[0].name = 'LookingUp';
 
@@ -29,7 +27,6 @@ export function Model({ activeExperience, ...props }) {
   const { actions } = useAnimations([...LookUp, ...LookMiddle, ...LookDown, ...Bounce], group);
 
   useEffect(() => {
-    // Ensure the animation is set to loop and play
     if (actions[currentAction]) {
       const action = actions[currentAction];
       action.setLoop(THREE.LoopOnce);
@@ -38,7 +35,7 @@ export function Model({ activeExperience, ...props }) {
       const freezeAtEnd = () => {
         if (action) {
           action.paused = true;
-          action.time = action.getClip().duration; // Ensure action is at end
+          action.time = action.getClip().duration; 
         }
       };
       
@@ -48,7 +45,6 @@ export function Model({ activeExperience, ...props }) {
   }, [actions, currentAction]);
 
   useEffect(() => {
-    // Reset and play the current action
     if (actions[currentAction]) {
       const action = actions[currentAction];
       action.reset().play(); 
@@ -60,7 +56,6 @@ export function Model({ activeExperience, ...props }) {
       const bounceAction = actions['Bouncing'];
       bounceAction.reset().play();
 
-      // Switch back to the previous animation after Bounce completes
       bounceAction.onFinish = () => {
         if (actions[currentAction]) {
           actions[currentAction].reset().play();
@@ -70,7 +65,6 @@ export function Model({ activeExperience, ...props }) {
   };
 
   useEffect(() => {
-    // Change animation based on activeExperience
     if (activeExperience === 'First Steps') {
       setCurrentAction('LookingMiddle');
     } else if (activeExperience === 'Now' || activeExperience === 'The Loop') {

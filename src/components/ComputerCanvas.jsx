@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import Computer from "./Computer"; // Default import
+import Computer from "./Computer";
 import { OrbitControls } from "@react-three/drei";
 import SciFi from "./Scifi";
 import CanvasLoader from "./loader";

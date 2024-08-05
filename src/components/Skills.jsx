@@ -1,12 +1,12 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useInView } from 'react-intersection-observer'; 
 
 const Skills = () => {
-    const h2Ref = useRef(null); // Ref for h2
+    const h2Ref = useRef(null); 
     const { ref, inView } = useInView({
       triggerOnce: true,
-      threshold: 0.5, // Trigger when 50% of the element is in view
+      threshold: 0.5,
     });
   
     const h2Animation = useSpring({

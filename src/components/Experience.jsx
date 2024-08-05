@@ -25,7 +25,6 @@ const Experience = () => {
     }, []);
 
     const handleTimelineElementClick = (title) => {
-        // Toggle activeExperience state
         setActiveExperience((prev) => (prev === title ? "" : title));
     };
 
