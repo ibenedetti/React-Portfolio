@@ -216,11 +216,38 @@ canvas{
 }
 
 #experience{
-  height: 100vh;
+  height: 170vh;
   width: 100vw;
   position: absolute;
   top: 190vh;
   background: var(--skill-bg);
+}
+
+.vertical-timeline{
+  height: 150dvh;
+}
+
+.vertical-timeline-element{
+  top:10dvh;
+  z-index: 1000;
+  padding: 3dvh;
+}
+
+.model-canvas-container{  
+  width: 100vw;
+  height: 150vh;
+  position: absolute!important;
+  top: 60vh;
+  left: 10vw;
+}
+
+.text-box{
+  width: 80%;
+  background: var(--skill-bg);
+  border-radius: 20px;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  padding: 15px;
 }
 
 /* CAROUSEL STYLING */
@@ -254,7 +281,7 @@ canvas{
   z-index: 1000!important;
   height: 100vh;
   width: 100vw;
-  top: 290vh;
+  top: 360vh;
 }
 
 form{

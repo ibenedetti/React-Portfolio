@@ -55,7 +55,7 @@ const Hero = ({ scrollContainer }) => {
       <TextAnimation />
       </div>
 
-      <ComputerCanvas className="computer-canvas" scrollContainer={scrollContainer} />
+      <ComputerCanvas className="computer-canvas absolute" scrollContainer={scrollContainer} />
     </section>
   );
 };

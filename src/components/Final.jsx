@@ -1,5 +1,3 @@
-import React from "react";
-import Carousel from "./Carousel";  // Correct the import path
 import "./style.css";
 
 const Final = () => {
@@ -7,24 +5,11 @@ const Final = () => {
     <div>
       <div className="text-box">
         <h3>Early experience</h3>
-        <p>To that time I was &nbsp; </p>
-        <div className="flicker-container">
-              <section className="obsessed">
-                  <span className="letter l-0">O</span>
-                  <span className="letter l-1">B</span>
-                  <span className="letter l-2">S</span>
-                  <span className="letter l-3">E</span>
-                  <span className="letter l-4">S</span>
-                  <span className="letter l-5">S</span>
-                  <span className="letter l-6">E</span>
-                  <span className="letter l-7">D</span>
-              </section>
-          </div>
-          
-        <p> &nbsp; with flicker effects on websites.
+        <p>
+          And here we are. I'm finally getting my own clients, building websites using 3D and constantly learning new frameworks and techniques.<br />
+          So why don't you come with me so we'd make some brilliant websites for your company?
         </p>
       </div>
-      <Carousel prefix="FINAL-" count={4} />
     </div>
   );
 };

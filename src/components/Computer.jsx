@@ -1,24 +1,26 @@
-import { useGLTF } from "@react-three/drei";
-import { useRef, useEffect } from "react";
-import { Box3, Vector3 } from "three";
-import computerScene from "../assets/3d/untitled.gltf";
+import React from 'react'
+import { useGLTF } from '@react-three/drei'
 
-const Computer = ({ scale, position, rotation }) => {
-    const computerRef = useRef();
-    const { scene } = useGLTF(computerScene);
+const Computer = (props) => {
+  const { nodes, materials } = useGLTF('/3d/Computer.glb')
+  return (
+    <group {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]} scale={0.299}>
+        <group rotation={[Math.PI / 2, 0, 0]}>
+          <mesh geometry={nodes.Object_4.geometry} material={materials.Beige_Plastic} />
+          <mesh geometry={nodes.Object_5.geometry} material={materials.Black_Plastic} />
+          <mesh geometry={nodes.Object_6.geometry} material={materials.Shiny_Metal} />
+          <mesh geometry={nodes.Object_7.geometry} material={materials.Screen} />
+          <mesh geometry={nodes.Object_8.geometry} material={materials.Gray_Plastic} />
+          <mesh geometry={nodes.Object_9.geometry} material={materials.Paper} />
+          <mesh geometry={nodes.Object_10.geometry} material={materials.Red_Plastic} />
+          <mesh geometry={nodes.Object_11.geometry} material={materials.Dark_Plastic} />
+        </group>
+      </group>
+    </group>
+  )
+}
 
-    useEffect(() => {
-        const box = new Box3().setFromObject(scene);
-        const size = new Vector3();
-        box.getSize(size);
-        console.log("Bounding Box Size:", size);
-    }, [scene]);
+useGLTF.preload('/3d/Computer.glb')
 
-    return (
-        <primitive ref={computerRef} object={scene} position={position} scale={scale} rotation={rotation} />
-    );
-};
-
-
-
-export default Computer;
+export default Computer
